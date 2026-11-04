@@ -1,0 +1,12 @@
+# Framework web
+Flask>=3.0.0
+
+# API da Anthropic para Claude
+anthropic>=0.39.0
+
+# Gerenciamento de variáveis de ambiente
+python-dotenv>=1.0.0
+
+# Testes
+pytest>=7.4.0
+pytest-mock>=3.12.0
