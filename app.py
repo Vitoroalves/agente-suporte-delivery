@@ -12,8 +12,23 @@ from flask import Flask, render_template, request, jsonify, session
 from dotenv import load_dotenv
 
 from agente.database import criar_banco, query
-from agente.agent import processar_mensagem
 from agente.prompts import MENSAGEM_BOAS_VINDAS
+
+# Tentar importar agente real, senão usar demo
+try:
+    API_KEY = os.getenv('ANTHROPIC_API_KEY')
+    if API_KEY and API_KEY != 'sua_chave_aqui':
+        from agente.agent import processar_mensagem
+        MODO_DEMO = False
+        print("✅ Modo: API Anthropic Real")
+    else:
+        from agente.agent_demo import processar_mensagem_demo as processar_mensagem
+        MODO_DEMO = True
+        print("🎭 Modo: DEMO (sem API) - Para testes e desenvolvimento")
+except Exception:
+    from agente.agent_demo import processar_mensagem_demo as processar_mensagem
+    MODO_DEMO = True
+    print("🎭 Modo: DEMO (sem API) - Para testes e desenvolvimento")
 
 # Carregar variáveis de ambiente
 load_dotenv()
@@ -213,6 +228,10 @@ if __name__ == '__main__':
     print("\n" + "="*60)
     print("🚀 NexFood - Agente de Suporte para Delivery")
     print("="*60)
+    if MODO_DEMO:
+        print("⚠️  MODO DEMO ATIVO (sem API Anthropic)")
+        print("   Configure ANTHROPIC_API_KEY no .env para modo real")
+        print("-"*60)
     print(f"📍 Servidor rodando em: http://localhost:{port}")
     print(f"🔧 Modo debug: {debug_mode}")
     print("="*60 + "\n")
