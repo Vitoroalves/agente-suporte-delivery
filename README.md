@@ -542,27 +542,14 @@ pytest tests/ -v
 
 ---
 
-## 📸 Screenshots
-
-### Interface Principal
-*[Espaço reservado para screenshot da interface]*
-
-### Exemplo de Conversa
-*[Espaço reservado para screenshot de conversa de exemplo]*
-
-### Ferramentas em Ação
-*[Espaço reservado para screenshot mostrando badges de ferramentas]*
-
----
-
 ## 👨‍💻 Autor
 
 **Vitor Alves**  
 Estudante de Sistemas de Informação (5º período)
 
 - GitHub: [@Vitoroalves](https://github.com/Vitoroalves)
-- LinkedIn: [seu-linkedin]
-- Email: [seu-email]
+- LinkedIn: [https://www.linkedin.com/in/vitor-alves-1a218b379/]
+- Email: [vitoroliveiramiranda3108@gmail.com]
 
 ---
 
